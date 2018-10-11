@@ -49,15 +49,15 @@ In the process of implementing feature extraction algorithms, we will review the
 
 [5] Sinha, U. (n.d.). Generating a feature. Retrieved from [http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/](http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/)
 
-[6] Texture. (n.d.). Retrieved from [http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf](http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf)
+[6] Texture. (n.d.). Retrieved from [http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.pdf](http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.pdf)
 
 [7] Renzetti, L. Z. (2011). Use of a Gray Level Co-occurrence Matrix to Characterize Duplex Stainless Steel Phases Microstructure. Frattura ed Integrità Strutturale, 16, 43-51. doi:10.3221/IGF-ESIS.16.05 http://www.gruppofrattura.it/pdf/rivista/numero16/numero%2016%20articolo%205.pdf
 
 [8]Corbett-Davies, S. Real-World Material Recognition for Scene Understanding.
 
-[9] 1.4. Support Vector Machines¶. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/svm.html](http://scikit-learn.org/stable/modules/svm.html)
+[9] 1.4. Support Vector Machines. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/svm.html](http://scikit-learn.org/stable/modules/svm.html)
 
-[10] Sklearn.cluster.KMeans¶. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+[10] Sklearn.cluster.KMeans. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 
 [11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: [http://www.cb.uu.se/~gustaf/texture/](http://www.cb.uu.se/~gustaf/texture/)
 
