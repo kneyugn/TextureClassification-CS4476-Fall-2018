@@ -39,34 +39,34 @@ In the process of implementing feature extraction algorithms, we will review the
 
 ### Citations
 
-[1] Lowe, D. G. (2004). Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision,60(2), 91-110. doi:10.1023/b:visi.0000029664.99615.94
+[1] Lowe, D. G. (2004). Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision,60(2), 91-110. [https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf](https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf)
 
 [2] Ojala, T., Pietikäinen, M., & Mäenpää, T. (2001). A Generalized Local Binary Pattern Operator for Multiresolution Gray Scale and Rotation Invariant Texture Classification. Lecture Notes in Computer Science Advances in Pattern Recognition — ICAPR 2001,399-408. doi:10.1007/3-540-44732-6_41
 
-[3] Local Binary Patterns with Python & OpenCV. (2018, June 21). Retrieved from https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
+[3] Local Binary Patterns with Python & OpenCV. (2018, June 21). Retrieved from [https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/](https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/)
 
 [4] Pietikã-Inen, M. (2010). Local Binary Patterns. Scholarpedia,5(3), 9775. doi:10.4249/scholarpedia.9775
 
-[5] Sinha, U. (n.d.). Generating a feature. Retrieved from http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/
+[5] Sinha, U. (n.d.). Generating a feature. Retrieved from [http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/](http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/)
 
-[6] Texture. (n.d.). Retrieved from http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf
+[6] Texture. (n.d.). Retrieved from [http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf](http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf)
 
 [7] Renzetti, L. Z. (2011). Use of a Gray Level Co-occurrence Matrix to Characterize Duplex Stainless Steel Phases Microstructure. Frattura ed Integrità Strutturale, 16, 43-51. doi:10.3221/IGF-ESIS.16.05 http://www.gruppofrattura.it/pdf/rivista/numero16/numero%2016%20articolo%205.pdf
 
 [8]Corbett-Davies, S. Real-World Material Recognition for Scene Understanding.
 
-[9] 1.4. Support Vector Machines¶. (n.d.). Retrieved from http://scikit-learn.org/stable/modules/svm.html
+[9] 1.4. Support Vector Machines¶. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/svm.html](http://scikit-learn.org/stable/modules/svm.html)
 
-[10] Sklearn.cluster.KMeans¶. (n.d.). Retrieved from http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+[10] Sklearn.cluster.KMeans¶. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 
-[11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: http://www.cb.uu.se/~gustaf/texture/
+[11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: [http://www.cb.uu.se/~gustaf/texture/](http://www.cb.uu.se/~gustaf/texture/)
 
-[12] Classification: Precision and Recall Machine Learning Crash Course Google Developers. (n.d.). Retrieved October 10, 2018, from https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall
+[12] Classification: Precision and Recall Machine Learning Crash Course Google Developers. (n.d.). Retrieved October 10, 2018, from [https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall](https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall)
 
-[13] Classification: Accuracy Machine Learning Crash Course Google Developers. (n.d.). Retrieved from https://developers.google.com/machine-learning/crash-course/classification/accuracy
+[13] Classification: Accuracy Machine Learning Crash Course Google Developers. (n.d.). Retrieved from [https://developers.google.com/machine-learning/crash-course/classification/accuracy](https://developers.google.com/machine-learning/crash-course/classification/accuracy)
 
-[14] Pederson, J. T. (2011).Study group SURF: Feature detection & description [PDF]. Aarhus: Aarhus University. http://cs.au.dk/~jtp/SURF/report.pdf
+[14] Pederson, J. T. (2011).Study group SURF: Feature detection & description [PDF]. Aarhus: Aarhus University. [http://cs.au.dk/~jtp/SURF/report.pdf](http://cs.au.dk/~jtp/SURF/report.pdf)
 
-[15 ] Chi Chung Tam, D. (2010). SURF: Speeded Up Robust Features [PDF]. Toronto: Ryerson University. http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf
+[15 ] Chi Chung Tam, D. (2010). SURF: Speeded Up Robust Features [PDF]. Toronto: Ryerson University. [http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf](http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf)
 
 [16] Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.
