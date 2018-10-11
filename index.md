@@ -56,9 +56,9 @@ In the process of implementing feature extraction algorithms, we will review the
 
 [11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: http://www.cb.uu.se/∼gustaf/texture/
 
-[12] Classification: Precision and Recall | Machine Learning Crash Course | Google Developers. (n.d.). Retrieved October 10, 2018, from https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall
+[12] Classification: Precision and Recall Machine Learning Crash Course Google Developers. (n.d.). Retrieved October 10, 2018, from https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall
 
-[13] Classification: Accuracy | Machine Learning Crash Course | Google Developers. (n.d.). Retrieved from https://developers.google.com/machine-learning/crash-course/classification/accuracy
+[13] Classification: Accuracy Machine Learning Crash Course Google Developers. (n.d.). Retrieved from https://developers.google.com/machine-learning/crash-course/classification/accuracy
 
 [14] Pederson, J. T. (2011).Study group SURF: Feature detection & description [PDF]. Aarhus: Aarhus University. http://cs.au.dk/~jtp/SURF/report.pdf
 
