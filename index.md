@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+## Classifying Textures: Proposal
 
-You can use the [editor on GitHub](https://github.com/kneyugn/cvTextureClassification/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### Introduction
+The purpose of the project is to identify 28 classes of texture from the Kylberg Texture Dataset [11] . The input of the system will be an image of the texture type. Then, the system will produce vector features from the following algorithms: Local Binary Pattern, Scale-Invariant Feature Transform, Law’s Texture Energy Measures, and Gray Level Co-Occurrence Matrix. Then, these feature vectors are passed into machine learning algorithms that is SVM to classify the type of texture. The output of the entire system is the prediction of the type of texture. In this project, we aim to implement the feature extraction algorithms. Then, we will use the bag-of-words model to classify the images using K-means and SVM. We will then compare and analyze each feature algorithm’s performance based on precision, recall and accuracy scores.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Algorithm Descriptions
 
-### Markdown
+#### Local Binary Pattern (LBP)
+LBP, also known as Local Binary Pattern, is a texture classification problem that recognizes certain local binary patterns that are fundamental properties of local image texture, and their histograms provide a very powerful texture feature [2]. LBP computes a local representation of texture, and this representation is created by comparing each pixel with surrounding neighborhood pixels. First we will need to convert the images to grayscale, and then select a neighborhood of size n around a central pixel. An LBP value is then calculated for the central pixel, using all neighboring pixels, and then stored in a decimal representation. You repeat these for all the all pixels in a picture, output 2D output array with same width and height as input image that represents the output LBP image. The final step is to calculate a histogram over the output LBP array, where the minimum value is 0 and the maximum value is 255. This algorithm only handles a fixed neighborhood of 3x3, and to handle varying neighborhood sizes, two more parameters were introduced. Number of points p in a circular neighborhood to remove the reliance on a square neighborhood, and the radius of the circle r, allowing us to account for different scales [3]. Another important concept of LBP is the uniform patterns. An LVP is considered to be uniform if it has at most two 0-1 or 1-0 transitions. Uniformity can greatly reduce the length of feature vector, and it has been shown that uniform features occur more frequent in texture images than non-uniform features [4]. Uniform patterns help make using LBP more computationally efficient, while retaining accuracy.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### Scale-Invariant Feature Transform (SIFT)
+The Scale-Invariant Feature Transform (SIFT) algorithm is used to create descriptors of key features of an image. The output of this SIFT is a vector size of 128 per feature point. This algorithm is used because it can detect key features that are invariant to image scale and rotation. The process to extract the 128 size vector is as followed: First, we create several octaves of the images. Then, we apply Gaussian blur of increasing scale to these images. The higher the scale, the blurrier the image will become. We take these images then create new images with the Difference of Gaussians so that we can extract key points of the image. These processes ensure that the algorithm is scale invariant because “only key points that persist at different scales are used” [8]. For images of neighboring scales, we take the difference of them to create the Difference of Gaussian images. With the difference of Gaussian images, we find key points as either the local maxima and minima within 26 pixels neighborhood. The key points are then filtered by removing low contrast features and or removing edges. In the image, we identify neighborhoods of 16x16 windows around keypoints. This window is broken into 16 individual 4x4 windows. Each pixel in the 4x4 window is computed for gradient magnitudes and orientations and it is weighted based on its distance from the key point. Gradients that are further away contribute less to the histogram. Then, final orientations of these pixels are placed into an 8 bin histogram. By using gradient orientation, it makes the algorithm rotation invariant [8]. The values of the 8 bin histogram as a grid in a 4x4 window creates the 128 size feature vector [1][5].
 
-```markdown
-Syntax highlighted code block
+#### Speeded-Up Robust Features (SURF)
+An algorithm that is similar to SIFT is called SURF, which stands for Speeded-Up Robust Features. SURF detects interest points in an image. It works in a way comparable to SIFT and is also consistent in finding the same interest points when run multiple times on the same image [15]. SURF is run on an integral image, which involves summing up all of the pixel intensities in a rectangular area. A key part of the SURF algorithm is the Hessian Matrix which is used to find the interest points in an image. The values in the Hessian Matrix are made up from convolving a Gaussian second order derivative at different points on the image. Next non-maximal suppression is used to find the local maxima of the image and then quadratic interpolation is applied to represent all pixels in the image[16]. The steps above describe the detector portion of finding the interest points using the SURF algorithm [14]. To start the descriptor process of the interest points is creating a window. Then dividing that window into 4 by 4 windows , creating 16 subwindows. In each of these subwindows a vector of 4 values is created that holds the sum of the derivative in the direction of x, the sum of the derivative in the direction of y, and the sum of each again with the absolute value. The result of this is a subwindow with the dimensions of 4 by 4 by 4. The resulting image as a whole, is now made up of feature vectors [16]. The resulting image can be used in bag of features, to determine if an image contains an object.
 
-# Header 1
-## Header 2
-### Header 3
+#### Gray Level Co-Occurrence Matrix (GLCM)
+Using a gray level co-occurrence matrix (GLCM) is one of the useful statistical texture analysis methods that determines a spatial dependence of gray level values of an input image. A GLCM is a 2-d matrix and its number of rows and columns are same as the number of gray levels in an input image. Each value in the GLCM represents the total occurrences of all pairs of gray levels (row, column) separated by a displacement vector. In detail, to construct a GLCM, the arrangement of gray level pairs needed to be counted are specified by a 1-d displacement vector. Then, all pairs (i, j) displaced by the vector are counted and the counted number is stored in a GLCM frame with position of (gray level of i, gray level of j). Finally, normalizing the output matrix by the sum of all values in the matrix results the GLCM [6]. The obtained GLCM acts as a probability matrix and thus it can be used to calculate 14 different statistic values of an image including energy, entropy, contrast, homogeneity, correlation, and mutual information [7]. Based on the these calculated statistics, the texture features of the image can be extracted and utilized with other texture detection algorithms. Additionally, for this project, parameters of 5 offset distance and 0 angle are used with skimage function.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+### Obtaining Datasets
+We are using the Kylberg Texture Dataset v. 1.0 [13]. In this dataset, we will use the texture dataset with rotated texture patches. There are 28 texture classes, 1920 unique samples per class, and thus there are 53,760 samples in total each of size 576 x 576. Each image sample is in an 8-bit grayscale PNG format. There are 12 rotations each with 30 degrees increment. The classes of the dataset include blanket, canvas, ceiling, cushion, floor, grass, lentils, linseeds, oatmeal, pearl sugar, rice, rug, sand, scarf, screen, seat, sesame seeds, stone, and wall. We will partition the dataset into training and test sets.
 
-**Bold** and _Italic_ and `Code` text
+### Tools
+Due to implementing bag-of-words model for image classification, we choose K-means and SVM because they are usually recommended in this model. K-means offers a way to cluster features. Meanwhile, SVM is used because it works well in high dimensional spaces, which is often the case for image feature vectors. We plan to use Scikit-Learn to extract clusters and to classify images [9][10]. As a result, we will be using Python as our programming language to implement this project.
 
-[Link](url) and ![Image](src)
-```
+### Process
+We will implement the bag-of-words model to classify images. With each algorithm, we will produce a matrix of feature descriptors of the image. Then, we will use K-means to cluster the features across all images. Then, we will create a histogram of features which tells us the frequencies of which the feature appears in an image. Then, we use Support Vector Machine (SVM) to classify the image based on the histogram of feature data per image. We will classify with all texture groups and test whether the result is positive or negative for all texture groups.We wish to compare how these feature extraction algorithms perform under a controlled machine learning algorithm. In our case, we use SVM. We are not concerned whether SVM is the best classifier algorithm but rather how each feature extraction algorithm works with SVM. We are uncertain of the precision, recall and accuracy scores that will be produced. Since our dataset uses rotation images, we are uncertain of how different feature algorithms will work well with rotated images. At this point, given our prior knowledge, we know that SIFT should perform reasonably well given its promise of rotation invariant. However, we are uncertain about other feature extraction algorithm’s performance with rotated images. Addition, we are unsure of other image processing algorithms such as thresholding that we may need to use in order to better extract features.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+We will compare each feature extraction algorithm’s performance based on the accuracy, precision and recall scores produces by SVM per texture class. Precision is the ratio of images correctly positively identified as a certain class over the number of images that are classified as positive for a specific class [12]. In other words, precision help us answer the question, “What proportion of positive identifications was actually correct?” [12]. Recall is the ratio of images that are correctly classified as positive over all images which true classification belongs to a certain class [12]. Recalls helps answer the question “What proportion of actual positives was identified correctly?” Finally, accuracy is the ratio between number of times an image was classified correctly (a combination of true positive and true negative) and the total number of classification attempts, which is a combination of true positive, true negative, false positive, false negative [13].
 
-### Jekyll Themes
+### Conclusion
+In the process of implementing feature extraction algorithms, we will review the advantages and disadvantages of the algorithms. These will be based on the results we receive for how accurate and precise each algorithm is in identifying a texture in an image. Based on the photos that are successfully identified, we will try to identify patterns and compare them for each algorithm. We will highlight the best conditions to which to apply these computer vision based algorithms and when to avoid using them. The best outcome would be to identify which algorithm identifies each texture accurately most often. Given time, we will look into the algorithms’ performances of texture in the real world and from outside of our dataset, which was produced under a very controlled and standardized setting.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kneyugn/cvTextureClassification/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Citations
 
-### Support or Contact
+[1] Lowe, D. G. (2004). Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision,60(2), 91-110. doi:10.1023/b:visi.0000029664.99615.94
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[2] Ojala, T., Pietikäinen, M., & Mäenpää, T. (2001). A Generalized Local Binary Pattern Operator for Multiresolution Gray Scale and Rotation Invariant Texture Classification. Lecture Notes in Computer Science Advances in Pattern Recognition — ICAPR 2001,399-408. doi:10.1007/3-540-44732-6_41
+
+[3] Local Binary Patterns with Python & OpenCV. (2018, June 21). Retrieved from https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
+
+[4] Pietikã-Inen, M. (2010). Local Binary Patterns. Scholarpedia,5(3), 9775. doi:10.4249/scholarpedia.9775
+
+[5] Sinha, U. (n.d.). Generating a feature. Retrieved from http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/
+
+[6] Texture. (n.d.). Retrieved from http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.files/MachineVision_……....Chapter7.pdf
+
+[7] Renzetti, L. Z. (2011). Use of a Gray Level Co-occurrence Matrix to Characterize Duplex Stainless Steel Phases Microstructure. Frattura ed Integrità Strutturale, 16, 43-51. doi:10.3221/IGF-ESIS.16.05 http://www.gruppofrattura.it/pdf/rivista/numero16/numero%2016%20articolo%205.pdf
+
+[8]Corbett-Davies, S. Real-World Material Recognition for Scene Understanding.
+
+[9] 1.4. Support Vector Machines¶. (n.d.). Retrieved from http://scikit-learn.org/stable/modules/svm.html
+
+[10] Sklearn.cluster.KMeans¶. (n.d.). Retrieved from http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+
+[11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: http://www.cb.uu.se/∼gustaf/texture/
+
+[12] Classification: Precision and Recall | Machine Learning Crash Course | Google Developers. (n.d.). Retrieved October 10, 2018, from https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall
+
+[13] Classification: Accuracy | Machine Learning Crash Course | Google Developers. (n.d.). Retrieved from https://developers.google.com/machine-learning/crash-course/classification/accuracy
+
+[14] Pederson, J. T. (2011).Study group SURF: Feature detection & description [PDF]. Aarhus: Aarhus University. http://cs.au.dk/~jtp/SURF/report.pdf
+
+[15 ] Chi Chung Tam, D. (2010). SURF: Speeded Up Robust Features [PDF]. Toronto: Ryerson University. http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf
+
+[16] Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.
