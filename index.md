@@ -1,9 +1,9 @@
 ## Classifying Textures: Proposal
 
 ### Team: Daham Eom, Abigail James, Kim Nguyen, Zohra Tabassum
-Link to project site: [https://kneyugn.github.io/cvTextureClassification/](https://kneyugn.github.io/cvTextureClassification/)
+Link to project site: [https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/](https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/)
 
-Link to project repository: [https://github.com/kneyugn/cvTextureClassification](https://github.com/kneyugn/cvTextureClassification)
+Link to project repository: [https://github.com/kneyugn/TextureClassification-CS4476-Fall-2018](https://github.com/kneyugn/TextureClassification-CS4476-Fall-2018)
 
 ### Introduction
 The purpose of the project is to identify 28 classes of texture from the Kylberg Texture Dataset [11] . The input of the system will be an image of the texture type. Then, the system will produce vector features from the following algorithms: Local Binary Pattern, Scale-Invariant Feature Transform, Law’s Texture Energy Measures, and Gray Level Co-Occurrence Matrix. Then, these feature vectors are passed into machine learning algorithms that is SVM to classify the type of texture. The output of the entire system is the prediction of the type of texture. In this project, we aim to implement the feature extraction algorithms. Then, we will use the bag-of-words model to classify the images using K-means and SVM. We will then compare and analyze each feature algorithm’s performance based on precision, recall and accuracy scores.
