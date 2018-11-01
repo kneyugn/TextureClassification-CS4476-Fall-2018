@@ -88,7 +88,7 @@ The results show very high accuracy and precision, and we see the accuracy incre
 
 Statistics example from GLCM with 100 x 100 size image and d = 1
 
-![Image](![Image](https://i.imgur.com/2czPsg5.png)
+![Image](https://i.imgur.com/2czPsg5.png)
 
 Statistics example from GLCM with 576 x 576 size image and d = 1
 ![Image](https://i.imgur.com/U8Hrdi0.png) 
@@ -119,38 +119,43 @@ Result of using different gamma values
 
 Result of different data split
 
+This table shows the performance of SVM using features obtained from GLCM with displacement 1. The type of SVM is NuSVC with gamma = ⅙ and linear kernel. Even though the SVM and GLCM are tuned with various parameters, the final accuracy is only about 65% which can be considered as a low value. Moreover, the SVM model performs poorly with classifying Linseeds and stone textures and it cannot classify cushion texture. However, the SVM model shows high accuracy for classifying canvas, sand, and seat textures.
+
+
 ### Conclusion
+
+We will extend to classify all 28 classes and increase the size of the images in the dataset. We will also extend how we process the algorithms. For SIFT, qualitative results show that the first two octaves do not produce any feature. This means that the implementation is not truly scale invariant. Thus, we will increase the image size until we can find meaningful features across all scales. We will also explore with tuning the k and sigma parameters. Finally, we will properly implement the bag-of-words model to improve accuracy, precision, and recall. For LBP the accuracy is extremely high, due to overfitting. Using cross validation and increasing the number of features used to accurately predict the label set might be several good ways to combat it, and further investigation into this is required. The SVM using features extracted from GLCM shows low overall accuracy. However, the model classifies three out of six textures with significantly high accuracy while it generally fails to classify other three textures. For the future implementation, using more image samples and additional statistics values can increase the overall accuracy. Also, more thorough hyperparameter tuning process is required with cross-validation to generate a better model. Overall, for all the algorithms, there needs to be further investigation using cross validation and  tuning of the parameters to combat the underfitting and overfitting that is occuring. For the algorithms that are underfitting, and having low accuracies, increasing the size to use the full dataset instead of partial will help increase the accuracy as well. And finally, as discussed in the results section for the Speeded Up Robust Features  algorithm, there is a bug that is preventing the interest points from being calculated correctly. The code needs to be looked at further to determine what exactly is causing this issue so it can be removed. Once that issue has been taken care of , SURF can be analyzed like the other algorithms. If this issue is not resolved, we will find another algorithm to analyze for texture classification. 
 
 ### References
 
-[1] Lowe, D. G. (2004). Distinctive Image Features from Scale-Invariant Keypoints. International Journal of Computer Vision,60(2), 91-110. [https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf](https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf)
+[1] Lowe, D. G. (2004). Distinctive Image Features from Scale-Invariant Keypoints.		 	 International Journal of Computer Vision,60(2), 91-110. 					 	https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf
 
-[2] Ojala, T., Pietikäinen, M., & Mäenpää, T. (2001). A Generalized Local Binary Pattern Operator for Multiresolution Gray Scale and Rotation Invariant Texture Classification. Lecture Notes in Computer Science Advances in Pattern Recognition — ICAPR 2001,399-408. doi:10.1007/3-540-44732-6_41
+[2]Kim, D., & Dahyot, R. (2008). Face Components Detection Using SURF Descriptors and 		SVMs. 2008 International Machine Vision and Image Processing Conference.  			doi:10.1109/imvip.2008.15
 
-[3] Local Binary Patterns with Python & OpenCV. (2018, June 21). Retrieved from [https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/](https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/)
+[3] Local Binary Patterns with Python & OpenCV. (2018, June 21). Retrieved from 			 https://www.pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
 
-[4] Pietikã-Inen, M. (2010). Local Binary Patterns. Scholarpedia,5(3), 9775. doi:10.4249/scholarpedia.9775
+[4] Moranduzzo, T., & Melgani, F. (2012). A SIFT-SVM method for detecting cars in UAV 		images. 2012 IEEE International Geoscience and Remote Sensing Symposium.  		  	doi:10.1109/igarss.2012.6352585
 
-[5] Sinha, U. (n.d.). Generating a feature. Retrieved from [http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/](http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/)
+[5] Sinha, U. (n.d.). Generating a feature. Retrieved from   							 http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/
 
-[6] Texture. (n.d.). Retrieved from [http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.pdf](http://www.cse.usf.edu/~r1k/MachineVisionBook/MachineVision.pdf)
+[6]Statistical Texture Measures Computed from Gray Level ... (n.d.). Retrieved from   		         ………http://www.docucu-archive.com/Statistical-Texture-Measures-Computed-from-Gray-Lev   	  el.pdf
 
-[7] Renzetti, L. Z. (2011). Use of a Gray Level Co-occurrence Matrix to Characterize Duplex Stainless Steel Phases Microstructure. Frattura ed Integrità Strutturale, 16, 43-51. doi:10.3221/IGF-ESIS.16.05 http://www.gruppofrattura.it/pdf/rivista/numero16/numero%2016%20articolo%205.pdf
+[7] 1.4. Support Vector Machines. (n.d.). Retrieved from   							http://scikit-learn.org/stable/modules/svm.html
 
-[8]Corbett-Davies, S. Real-World Material Recognition for Scene Understanding.
+[8] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish 			 University of Agricultural Sciences and Uppsala University, External report (Blue series) 	  No. 35. Available online at: http://www.cb.uu.se/~gustaf/texture/
 
-[9] 1.4. Support Vector Machines. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/svm.html](http://scikit-learn.org/stable/modules/svm.html)
+[9]Oyallon, E., & Rabin, J. (2015). An Analysis of the SURF Method. Image Processing On 		 Line, 5, 176-218. Retrieved October 29, 2018, from  						 http://www.ipol.im/pub/art/2015/69/?utm_source=doi
 
-[10] Sklearn.cluster.KMeans. (n.d.). Retrieved from [http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+[10]Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.  	
 
-[11] G. Kylberg. The Kylberg Texture Dataset v. 1.0, Centre for Image Analysis, Swedish University of Agricultural Sciences and Uppsala University, External report (Blue series) No. 35. Available online at: [http://www.cb.uu.se/~gustaf/texture/](http://www.cb.uu.se/~gustaf/texture/)
+[11] Fall [Digital image]. (n.d.). Retrieved October 29, 2018, from     			  ………https://www.almanac.com/content/2018-fall-foliage-forecast-vivid-northeast-mixed-bag-		   elsewhere 
 
-[12] Classification: Precision and Recall Machine Learning Crash Course Google Developers. (n.d.). Retrieved October 10, 2018, from [https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall](https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall)
+[12] Module: Feature¶. (n.d.). Retrieved October 31, 2018, from 						 http://scikit-image.org/docs/dev/api/skimage.feature.html#skimage.feature.greycomatrix
 
-[13] Classification: Accuracy Machine Learning Crash Course Google Developers. (n.d.). Retrieved from [https://developers.google.com/machine-learning/crash-course/classification/accuracy](https://developers.google.com/machine-learning/crash-course/classification/accuracy)
+[13] Moranduzzo, T., & Melgani, F. (2012). Iris Recognition using Gray Level Co-occurrence 		 Matrix and Hausdorff Dimension. 2012 IEEE International Geoscience and Remote 		 Sensing Symposium. doi:10.1109/igarss.2012.6352585
 
-[14] Pederson, J. T. (2011).Study group SURF: Feature detection & description [PDF]. Aarhus: Aarhus University. [http://cs.au.dk/~jtp/SURF/report.pdf](http://cs.au.dk/~jtp/SURF/report.pdf)
+[14] Qian, K., Zhang, Y., & Hasegawa-Johnson, M. (2016). Application of local binary patterns 		 for SVM-based stop consonant detection. Speech Prosody 2016. 					 doi:10.21437/speechprosody.2016-229
 
-[15 ] Chi Chung Tam, D. (2010). SURF: Speeded Up Robust Features [PDF]. Toronto: Ryerson University. [http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf](http://www.computerrobotvision.org/2010/tutorial_day/tam_surf_rev3.pdf)
+[15] R. (n.d.). Rmislam/PythonSIFT. Retrieved October 31, 2018, from    ……….https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
 
-[16] Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.
+[16] Katsigianni, S. (n.d.). [Example of Local Binary Pattern]. Retrieved from   	 ……....https://www.researchgate.net/figure/Example-of-Local-Binary-Pattern-calculation-for-a-3		-3-pixel-neighbourhood-a-Greyscale_fig2_260261605
