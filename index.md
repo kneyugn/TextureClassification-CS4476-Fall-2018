@@ -115,12 +115,15 @@ NuSVC performs better than regular SVC so hyperparameter tuning is only done wit
 
 
 Result of using different gamma values
+
 ![Image](https://i.imgur.com/jkmScwx.png)
 
 Result of different data split
+
 ![Image](https://i.imgur.com/KVlwIkL.png) 
 
 Final result with optimal settings
+
 ![Image](https://i.imgur.com/A9iiQ74.png)
 
 This table shows the performance of SVM using features obtained from GLCM with displacement 1. The type of SVM is NuSVC with gamma = ⅙ and linear kernel. Even though the SVM and GLCM are tuned with various parameters, the final accuracy is only about 65% which can be considered as a low value. Moreover, the SVM model performs poorly with classifying Linseeds and stone textures and it cannot classify cushion texture. However, the SVM model shows high accuracy for classifying canvas, sand, and seat textures.
