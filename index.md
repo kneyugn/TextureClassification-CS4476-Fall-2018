@@ -55,19 +55,32 @@ After getting all values, a training set and test set for SVM model are construc
  
  ![Image](https://i.imgur.com/Po6KDPG.png)
  
- ![Image](https://i.imgur.com/Pfo51Fc.png)
- 
  ![Image](https://i.imgur.com/XNHTPxJ.png)
 Above are the images of features extracted of varying octaves and scales. There are 4 octaves and 6 scales. The rate that gaussian sigma is multiplied is k = 1.414214. The starting sigma is .7. For the first two octaves, no features were found throughout all the scales. Only a few features were found in the normal size octave and most were found in the doubled sized octave. In the next stage, we will look at image sizes that are larger than 100x100 pixels to ensure that all octaves produce features to ensure true image scale invariant. 
+
+ ![Image](https://imgur.com/Sn149Et)
 
 Here, the baseline of only passing in an array of descriptors into SVM to fit and predict. We have roughly 50% accuracy rate for all data splits. The precision and recall scores are very similar as well. This shows that on average, relevant classes are correctly identified at around 50% of the time (recall). On average for all classes, 50% of those identified for a class are correct (precision). 
 
 The results are what we expected if a bag-of-feature model is not employed, thus these are the baseline scores. Instead of passing in the array of descriptors, we must first cluster the features with K-means. Then, map the label to cluster for descriptors in each image. Each image will have a histogram of how often these descriptors show in the image. Then, an array of these histogram features is used to fit and predict the classification for these images.
 
+#### LBP
+ ![Image](https://i.imgur.com/BgpiFCj.png)
+
+Here are the corresponding histograms for these images:
+![Image](https://i.imgur.com/BgpiFCj.png)
+![Image](https://i.imgur.com/BgpiFCj.png)
+![Image](https://i.imgur.com/BgpiFCj.png)
+![Image](https://i.imgur.com/BgpiFCj.png)
+
+SVM Results for LBP:
+![Image](https://i.imgur.com/Yl1C1q8.png)
+
+The results show very high accuracy and precision, and we see the accuracy increase as the training set increases and then decrease. This is a key sign of overfitting, which is causing such high results and the accuracy to plateau and then decrease as the training set increases. Future work would be to see why this overfitting is occurring, and using cross validation to combat it. 
 
 #### SURF
+2D LBP representation of different image texture
 
-#### LBP
 
 ### GLCM 
 
