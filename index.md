@@ -1,4 +1,4 @@
-## Classifying Textures: Proposal
+## Classifying Textures: Midpoint Update
 
 ![Image](https://i.imgur.com/FZhRIqF.png)
 
