@@ -76,7 +76,6 @@ Here are the corresponding histograms for these images:
 
 
 SVM Results for LBP:
-
 ![Image](https://i.imgur.com/Yl1C1q8.png)
 
 The results show very high accuracy and precision, and we see the accuracy increase as the training set increases and then decrease. This is a key sign of overfitting, which is causing such high results and the accuracy to plateau and then decrease as the training set increases. Future work would be to see why this overfitting is occurring, and using cross validation to combat it. 
@@ -103,12 +102,12 @@ Altering displacement vector in linear kernel type
 Since the result of LinearSVC is too low, it is omitted and only SVC and NuSVC are used for further optimization.
 
 ![Image](https://i.imgur.com/juODoeB.png) 
-![Image](https://i.imgur.com/XVKQpvk.png)
+
 
 GLCM with displacement factor of 1 results the highest accuracy. Thus, d = 2 and 4 are not tested for the rest of the experiments.
 Result of using different kernel type
 
-![Image](https://i.imgur.com/LdPN1Yl.png) 
+![Image](https://i.imgur.com/XVKQpvk.png)
 
 
 NuSVC performs better than regular SVC so hyperparameter tuning is only done with the NuSVC and linear kernel.
