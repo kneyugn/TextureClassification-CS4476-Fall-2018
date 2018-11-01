@@ -101,8 +101,9 @@ Altering displacement vector in linear kernel type
 
 Since the result of LinearSVC is too low, it is omitted and only SVC and NuSVC are used for further optimization.
 
-![Image](https://i.imgur.com/juODoeB.png) 
+![Image](https://i.imgur.com/juODoeB.png)
 
+![Image](https://i.imgur.com/kBikm4p.png)
 
 GLCM with displacement factor of 1 results the highest accuracy. Thus, d = 2 and 4 are not tested for the rest of the experiments.
 Result of using different kernel type
