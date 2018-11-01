@@ -76,6 +76,7 @@ Here are the corresponding histograms for these images:
 
 
 SVM Results for LBP:
+
 ![Image](https://i.imgur.com/Yl1C1q8.png)
 
 The results show very high accuracy and precision, and we see the accuracy increase as the training set increases and then decrease. This is a key sign of overfitting, which is causing such high results and the accuracy to plateau and then decrease as the training set increases. Future work would be to see why this overfitting is occurring, and using cross validation to combat it. 
