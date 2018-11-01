@@ -58,7 +58,7 @@ After getting all values, a training set and test set for SVM model are construc
  
 Above are the images of features extracted of varying octaves and scales. There are 4 octaves and 6 scales. The rate that gaussian sigma is multiplied is k = 1.414214. The starting sigma is .7. For the first two octaves, no features were found throughout all the scales. Only a few features were found in the normal size octave and most were found in the doubled sized octave. In the next stage, we will look at image sizes that are larger than 100x100 pixels to ensure that all octaves produce features to ensure true image scale invariant. 
 
- ![Image](https://imgur.com/Sn149Et)
+ ![Image](https://i.imgur.com/Sn149Et.png)
 
 Here, the baseline of only passing in an array of descriptors into SVM to fit and predict. We have roughly 50% accuracy rate for all data splits. The precision and recall scores are very similar as well. This shows that on average, relevant classes are correctly identified at around 50% of the time (recall). On average for all classes, 50% of those identified for a class are correct (precision). 
 
