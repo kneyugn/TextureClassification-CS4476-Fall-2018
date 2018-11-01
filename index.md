@@ -1,5 +1,7 @@
 ## Classifying Textures: Proposal
 
+![Image](https://i.imgur.com/FZhRIqF.png)
+
 ### Team: Daham Eom, Abigail James, Kim Nguyen, Zohra Tabassum
 Link to project site: [https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/](https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/)
 
