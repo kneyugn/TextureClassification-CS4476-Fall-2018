@@ -48,7 +48,6 @@ After getting all values, a training set and test set for SVM model are construc
 
 #### SIFT
 
-
  ![Image](https://i.imgur.com/4vqPfgd.png)
  
  ![Image](https://i.imgur.com/TvDEnM5.png) 
@@ -56,6 +55,7 @@ After getting all values, a training set and test set for SVM model are construc
  ![Image](https://i.imgur.com/Po6KDPG.png)
  
  ![Image](https://i.imgur.com/XNHTPxJ.png)
+ 
 Above are the images of features extracted of varying octaves and scales. There are 4 octaves and 6 scales. The rate that gaussian sigma is multiplied is k = 1.414214. The starting sigma is .7. For the first two octaves, no features were found throughout all the scales. Only a few features were found in the normal size octave and most were found in the doubled sized octave. In the next stage, we will look at image sizes that are larger than 100x100 pixels to ensure that all octaves produce features to ensure true image scale invariant. 
 
  ![Image](https://imgur.com/Sn149Et)
@@ -65,6 +65,7 @@ Here, the baseline of only passing in an array of descriptors into SVM to fit an
 The results are what we expected if a bag-of-feature model is not employed, thus these are the baseline scores. Instead of passing in the array of descriptors, we must first cluster the features with K-means. Then, map the label to cluster for descriptors in each image. Each image will have a histogram of how often these descriptors show in the image. Then, an array of these histogram features is used to fit and predict the classification for these images.
 
 #### LBP
+
  ![Image](https://i.imgur.com/BgpiFCj.png)
 
 Here are the corresponding histograms for these images:
@@ -83,6 +84,39 @@ The results show very high accuracy and precision, and we see the accuracy incre
 
 
 ### GLCM 
+
+Statistics example from GLCM with 100 x 100 size image and d = 1
+
+![Image](![Image](https://i.imgur.com/2czPsg5.png)
+
+Statistics example from GLCM with 576 x 576 size image and d = 1
+![Image](https://i.imgur.com/U8Hrdi0.png) 
+
+It can be noticed that GLCM algorithm does not extract distinctive features when the resized images are used. Therefore, only images with original size are used to make a SVM classifier.
+SVM Results for GLCM
+Altering displacement vector in linear kernel type
+
+![Image](https://i.imgur.com/JoxDsMw.png) 
+
+Since the result of LinearSVC is too low, it is omitted and only SVC and NuSVC are used for further optimization.
+
+![Image](https://i.imgur.com/juODoeB.png) 
+![Image](https://i.imgur.com/XVKQpvk.png)
+
+GLCM with displacement factor of 1 results the highest accuracy. Thus, d = 2 and 4 are not tested for the rest of the experiments.
+Result of using different kernel type
+
+![Image](https://i.imgur.com/LdPN1Yl.png) 
+![Image](https://i.imgur.com/jkmScwx.png)
+
+NuSVC performs better than regular SVC so hyperparameter tuning is only done with the NuSVC and linear kernel.
+
+![Image](https://i.imgur.com/KVlwIkL.png) 
+
+Result of using different gamma values
+![Image](https://i.imgur.com/A9iiQ74.png)
+
+Result of different data split
 
 ### Conclusion
 
