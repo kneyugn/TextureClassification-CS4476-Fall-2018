@@ -1,6 +1,4 @@
-## Classifying Textures: Midpoint Update
-
-![Image](https://i.imgur.com/FZhRIqF.png)
+## Classifying Textures: Proposal
 
 ### Team: Daham Eom, Abigail James, Kim Nguyen, Zohra Tabassum
 Link to project site: [https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/](https://kneyugn.github.io/TextureClassification-CS4476-Fall-2018/)
@@ -110,16 +108,20 @@ GLCM with displacement factor of 1 results the highest accuracy. Thus, d = 2 and
 Result of using different kernel type
 
 ![Image](https://i.imgur.com/LdPN1Yl.png) 
-![Image](https://i.imgur.com/jkmScwx.png)
+
 
 NuSVC performs better than regular SVC so hyperparameter tuning is only done with the NuSVC and linear kernel.
 
-![Image](https://i.imgur.com/KVlwIkL.png) 
+
 
 Result of using different gamma values
-![Image](https://i.imgur.com/A9iiQ74.png)
+![Image](https://i.imgur.com/jkmScwx.png)
 
 Result of different data split
+![Image](https://i.imgur.com/KVlwIkL.png) 
+
+Final result with optimal settings
+![Image](https://i.imgur.com/A9iiQ74.png)
 
 This table shows the performance of SVM using features obtained from GLCM with displacement 1. The type of SVM is NuSVC with gamma = ⅙ and linear kernel. Even though the SVM and GLCM are tuned with various parameters, the final accuracy is only about 65% which can be considered as a low value. Moreover, the SVM model performs poorly with classifying Linseeds and stone textures and it cannot classify cushion texture. However, the SVM model shows high accuracy for classifying canvas, sand, and seat textures.
 
