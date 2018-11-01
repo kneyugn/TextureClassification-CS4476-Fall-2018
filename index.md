@@ -34,14 +34,16 @@ Speeded Up Robust Features (SURF) is the another algorithm that is being analyze
 ##### Local Binary Pattern
 You want to calculate the lbp value for each pixel. Iterating through the grayscale image version of the pic, you set the current pixel as the center pixel for your 3x3 neighborhood. You threshold the the neighborhood by comparing the center pixel values to all the neighbors, and if the center less than the neighbor, set the threshold to one. Else set the value to zero. The LBP value you get is the 8-binary neighborhood of the center pixel converted to a decimal representation. To get this representation, start in a clockwise fashion and the top right neighbor as 2^0 and continue from there. Multiple by the threshold values. That is your LBP value. 
  ![Image](https://i.imgur.com/VDVbcBe.png)
+ 
+ Source for Figure: [16]
+ 
+You then get the 2-Dimensional Image Representation of the LBP. You can use this to calculate a histogram for that image.  Next is constructing the histogram of the frequencies of the LBP values calculated (in percentage). Since the 2-D Since a 3 x 3 neighborhood has 2 ^ 8 = 256 possible patterns, the LBP 2D array thus has a minimum value of 0 and a maximum value of 255,  and so a 256-bin histogram is constructed of LBP codes [3]. Each image will return a histogram, which is just a one dimensional array. You use this as the feature of the images, along with the label set of images from  1-6 for each image that represents the different folders of textures. I then used SVC, and then used a test set of the histograms and labels, to see the predicted labels that the model would get. And then compared the original labels and the predicted labels. 
+
 
 ##### Gray Level Co-Occurrence Matrix
 In this midterm update, a dataset of 6 textures with 40 samples in each class is used to obtain GLCM values and corresponding statistical metrics. The GLCM is a n x n matrix where n is the number of gray level in an image and each cell represents the co-occurrence of gray-level pixel in an image. Thus, all image samples are converted to 8 bit grayscale images and a GLCM is calculated for each converted image. Multiple GLCM calculations are done with displacement vector of [1, 2, 4] and rotation vector of [0] to find the optimal combination for statistics calculations. 3 possible sets of GLCMs are normalized by the number of pixels and then used to calculate the values of contrast, dissimilarity, homogeneity, ASM, energy, and correlation of the texture image by following equations. [7]
 
  ![Image](https://i.imgur.com/Pfo51Fc.png)
-
-Source for Figure: [16]
-You then get the 2-Dimensional Image Representation of the LBP. You can use this to calculate a histogram for that image.  Next is constructing the histogram of the frequencies of the LBP values calculated (in percentage). Since the 2-D Since a 3 x 3 neighborhood has 2 ^ 8 = 256 possible patterns, the LBP 2D array thus has a minimum value of 0 and a maximum value of 255,  and so a 256-bin histogram is constructed of LBP codes [3]. Each image will return a histogram, which is just a one dimensional array. You use this as the feature of the images, along with the label set of images from  1-6 for each image that represents the different folders of textures. I then used SVC, and then used a test set of the histograms and labels, to see the predicted labels that the model would get. And then compared the original labels and the predicted labels. 
 
 After getting all values, a training set and test set for SVM model are constructed with above statistics as attributes and 6 textures: canvas, cushion, linseed, sand, seat, and stone as labels. The dataset is divided into a training set and a test set with ratio of 8:2, 7:3, and 6:4 and feeded to three different SVM implemented in Python - sklearn libraries. The result models are sensitive to input images, hyperparameters, and SVM algorithms. To maximize the overall accuracy of the model, three types of SVM, SVC, linearSVC, and NuSVC, are run with different parameters settings such as penalty value, kernel type, and gamma value. Also, the original images and resized images are tested to check the influence of different image input.
 
@@ -66,6 +68,8 @@ Here, the baseline of only passing in an array of descriptors into SVM to fit an
 The results are what we expected if a bag-of-feature model is not employed, thus these are the baseline scores. Instead of passing in the array of descriptors, we must first cluster the features with K-means. Then, map the label to cluster for descriptors in each image. Each image will have a histogram of how often these descriptors show in the image. Then, an array of these histogram features is used to fit and predict the classification for these images.
 
 #### LBP
+
+2D LBP representation of different image texture.
 
  ![Image](https://i.imgur.com/BgpiFCj.png)
 
@@ -93,7 +97,9 @@ The results show very high accuracy and precision, and we see the accuracy incre
 ![Image](https://i.imgur.com/U8Hrdi0.png) 
 
 It can be noticed that GLCM algorithm does not extract distinctive features when the resized images are used. Therefore, only images with original size are used to make a SVM classifier.
+
 SVM Results for GLCM
+
 Altering displacement vector in linear kernel type
 
 ![Image](https://i.imgur.com/JoxDsMw.png) 
@@ -109,10 +115,7 @@ Result of using different kernel type
 
 ![Image](https://i.imgur.com/XVKQpvk.png)
 
-
 NuSVC performs better than regular SVC so hyperparameter tuning is only done with the NuSVC and linear kernel.
-
-
 
 Result of using different gamma values
 
