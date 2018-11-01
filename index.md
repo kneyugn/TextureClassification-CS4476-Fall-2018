@@ -87,11 +87,9 @@ The results show very high accuracy and precision, and we see the accuracy incre
 
 ### GLCM 
 
-Statistics example from GLCM with 100 x 100 size image and d = 1
 
 ![Image](https://i.imgur.com/2czPsg5.png)
 
-Statistics example from GLCM with 576 x 576 size image and d = 1
 ![Image](https://i.imgur.com/U8Hrdi0.png) 
 
 It can be noticed that GLCM algorithm does not extract distinctive features when the resized images are used. Therefore, only images with original size are used to make a SVM classifier.
