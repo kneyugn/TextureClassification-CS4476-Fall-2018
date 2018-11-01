@@ -69,10 +69,11 @@ The results are what we expected if a bag-of-feature model is not employed, thus
  ![Image](https://i.imgur.com/BgpiFCj.png)
 
 Here are the corresponding histograms for these images:
-![Image](https://i.imgur.com/BgpiFCj.png)
-![Image](https://i.imgur.com/BgpiFCj.png)
-![Image](https://i.imgur.com/BgpiFCj.png)
-![Image](https://i.imgur.com/BgpiFCj.png)
+![Image](https://i.imgur.com/PXxNy1A.png) 
+![Image](https://i.imgur.com/aIz3zdz.png) 
+![Image](https://i.imgur.com/2g5PI4S.png) 
+![Image](https://i.imgur.com/vCzDcC4.png)
+
 
 SVM Results for LBP:
 ![Image](https://i.imgur.com/Yl1C1q8.png)
