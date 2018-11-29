@@ -116,9 +116,25 @@ Here are the corresponding histograms for these images:
 
 SVM Results for LBP:
 
-![Image](https://i.imgur.com/Yl1C1q8.png)
+For the last update, we  saw that for LBP the results were very high when only using the partial dataset. This was a sign of overfitting, as the training and testing error were converging very fast when increasing training set size, with the training error dropping drastically as the training set size increased. Overfitting was occuring because training and testing set are using the same data and fitting to noise and outliers. This was evident when using the sample set below. 
 
-The results show very high accuracy and precision, and we see the accuracy increase as the training set increases and then decrease. This is a key sign of overfitting, which is causing such high results and the accuracy to plateau and then decrease as the training set increases. Future work would be to see why this overfitting is occurring, and using cross validation to combat it. 
+![Image](https://i.imgur.com/yr5aoHj.png)
+
+When looking at the sample dataset, when the degree reached 7 for using sample set and 100x100 images, the accuracy became 100%. Because there are so little classes 6 of them, the algorithm figured out quickly how to spot them, and thus started overfitting. For the sample set that used 576x576 images, the accuracy for both kernel degree 6 and 7 were 100%. Overfitting was solved when using the full dataset, as there are 28 classes to try to identify, versus 6. 
+
+![Image](https://i.imgur.com/lkbGzjL.png)
+
+![Image](https://i.imgur.com/CpQlo3l.png)
+
+![Image](https://i.imgur.com/LbQyClK.png)
+
+![Image](https://i.imgur.com/h5hQlMB.png)
+
+When looking at the results of using the full dataset, they were pretty good. In fact, the accuracies of using a patch of the image 100x100, versus the full 576x576 did not have much difference in  accuracies. For Kernel Degree = 7 100x100 the accuracy was 97.2 versus for Kernel Degree = 7 576x576 97.6%. The accuracies were pretty similar, but the run time for using the full time image was far longer to compute the LBP of the image, 2 hours vs 15 minutes for degree = 7. Kernel of 6 for 100x100 versus 576x576 had a difference, but that is again not the parameter we got from hypertuning. Thus using a patch of the image does a good job of classification, and is an efficient run time. 
+
+When comparing the runtimes of the different kernels, degree 6 was faster every time, but the accuracies were lower compared to degree 7. This makes sense, as the complexity of the algorithm increases with each addition of degree to the kernel. 
+
+
 
 ### GLCM 
 
