@@ -1,4 +1,4 @@
-## Classifying Textures: Midpoint Update
+## Classifying Textures: Final Update
 
 ![Image](https://i.imgur.com/FZhRIqF.png)
 
