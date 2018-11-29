@@ -59,7 +59,8 @@ For the GLCM experiment, a dataset of 28 textures with 40 to 160 images in each 
 
  ![Image](https://i.imgur.com/Pfo51Fc.png)
 
-After getting all values, a training set and test set for SVM model are constructed with above statistics as attributes and 6 textures: canvas, cushion, linseed, sand, seat, and stone as labels. The dataset is divided into a training set and a test set with ratio of 8:2, 7:3, and 6:4 and feeded to three different SVM implemented in Python - sklearn libraries. The result models are sensitive to input images, hyperparameters, and SVM algorithms. To maximize the overall accuracy of the model, three types of SVM, SVC, linearSVC, and NuSVC, are run with different parameters settings such as penalty value, kernel type, and gamma value. Also, the original images and resized images are tested to check the influence of different image input.
+After getting all values, a training set and test set for the support vector machine model are constructed with above statistics as attributes and 28 textures as labels. The dataset is divided into a training set and a test set with the ratio of 7:3 and SVC model is generated with sklearn.svm library in Python environment. To maximize the overall accuracy of the model, hyperparameters are obtained and the cross validation is processed from GridSearchCV function in sklearn.model_selection. Based on the optimized hyperparameters, poly kernel type is used with 1 penalty value, degree 6, shrinking and probability features, one-vs-one decision function, ⅙ gamma, 5.0 coefficient and unlimited iteration. Also, the original images of 576 x 576 size and resized images of 100 x 100 size are tested to check the influence of different scale input.
+
 
 ### Experiments and results
 
@@ -112,45 +113,33 @@ The results show very high accuracy and precision, and we see the accuracy incre
 
 ### GLCM 
 
+40 to 160 images of 28 textures with size 100 x 100 and 576 x 576 are converted to GLCM with 1 distance vector and 0 angle vector. Then, 6 GLCM properties, contrast, dissimilarity, homogeneity, energy, correlation and ASM are calculated. Two examples of calculated statistics data are provided below.
 
-![Image](https://i.imgur.com/2czPsg5.png)
+Sample training set of GLCM features with 28 images of 100 x 100 size
 
-![Image](https://i.imgur.com/U8Hrdi0.png) 
+![Image](https://i.imgur.com/wqw2buw.png)
 
-It can be noticed that GLCM algorithm does not extract distinctive features when the resized images are used. Therefore, only images with original size are used to make a SVM classifier.
+Sample training set of GLCM features with 28 images of 576 x 576 size
+
+![Image](https://i.imgur.com/c1WDlbR.png)
 
 SVM Results for GLCM
 
-Altering displacement vector in linear kernel type
+![Image](https://i.imgur.com/1VMZWxx.png)
 
-![Image](https://i.imgur.com/JoxDsMw.png) 
+This table shows the performance of SVM using features obtained from GLCM with the optimized hyperparameters. Clearly, the results with bigger size images is better than smaller size. However, as shown in the table of calculated GLCM properties, some textures have no distinctive statistical values such as ceiling2, cushion1, and floor1. Therefore, the overall accuracy of the classification is low as 30% for 576 x 576 size images and 20% for 100 x 100 size images.
 
-Since the result of LinearSVC is too low, it is omitted and only SVC and NuSVC are used for further optimization.
+Additional SVM Experiment with Meaningful Classes
 
-![Image](https://i.imgur.com/juODoeB.png)
+In spite of the previous result, the performance of this GLCM classification can be improved by removing texture classes with insignificant GLCM properties. Total 17 classes are eliminated and 11 classes are used to create new svm model. The overall accuracy is significantly increased to 60% which is two times better than the previous experiment. The sample calculation and the experiment result are in the next tables.
 
-![Image](https://i.imgur.com/kBikm4p.png)
+Sample training set of GLCM features with significant 11 images of 576 x 576 size
 
-GLCM with displacement factor of 1 results the highest accuracy. Thus, d = 2 and 4 are not tested for the rest of the experiments.
-Result of using different kernel type
+![Image](https://i.imgur.com/VipNlzc.png)
 
-![Image](https://i.imgur.com/XVKQpvk.png)
+![Image](https://i.imgur.com/bnD58Pa.png)
 
-NuSVC performs better than regular SVC so hyperparameter tuning is only done with the NuSVC and linear kernel.
-
-Result of using different gamma values
-
-![Image](https://i.imgur.com/jkmScwx.png)
-
-Result of different data split
-
-![Image](https://i.imgur.com/KVlwIkL.png) 
-
-Final result with optimal settings
-
-![Image](https://i.imgur.com/A9iiQ74.png)
-
-This table shows the performance of SVM using features obtained from GLCM with displacement 1. The type of SVM is NuSVC with gamma = ⅙ and linear kernel. Even though the SVM and GLCM are tuned with various parameters, the final accuracy is only about 65% which can be considered as a low value. Moreover, the SVM model performs poorly with classifying Linseeds and stone textures and it cannot classify cushion texture. However, the SVM model shows high accuracy for classifying canvas, sand, and seat textures.
+![Image](https://i.imgur.com/GhmfthM.png)
 
 
 ### Conclusion
