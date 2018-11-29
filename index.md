@@ -195,7 +195,7 @@ We would also like to improve the implementation of the algorithms we used. For 
 
 [5] Sinha, U. (n.d.). Generating a feature. Retrieved from   							 http://aishack.in/tutorials/sift-scale-invariant-feature-transform-features/
 
-[6]Statistical Texture Measures Computed from Gray Level ... (n.d.). Retrieved from   		         ………http://www.docucu-archive.com/Statistical-Texture-Measures-Computed-from-Gray-Lev   	  el.pdf
+[6]Statistical Texture Measures Computed from Gray Level ... (n.d.). Retrieved from   		         http://www.docucu-archive.com/Statistical-Texture-Measures-Computed-from-Gray-Lev   	  el.pdf
 
 [7] 1.4. Support Vector Machines. (n.d.). Retrieved from   							http://scikit-learn.org/stable/modules/svm.html
 
@@ -205,7 +205,7 @@ We would also like to improve the implementation of the algorithms we used. For 
 
 [10]Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.
 
-[11] Fall [Digital image]. (n.d.). Retrieved October 29, 2018, from     			  ………https://www.almanac.com/content/2018-fall-foliage-forecast-vivid-northeast-mixed-bag-		   elsewhere
+[11] Fall [Digital image]. (n.d.). Retrieved October 29, 2018, from     			 https://www.almanac.com/content/2018-fall-foliage-forecast-vivid-northeast-mixed-bag-		   elsewhere
 
 [12] Module: Feature¶. (n.d.). Retrieved October 31, 2018, from 						 http://scikit-image.org/docs/dev/api/skimage.feature.html#skimage.feature.greycomatrix
 
@@ -215,10 +215,10 @@ We would also like to improve the implementation of the algorithms we used. For 
 
 [15] R. (n.d.). Rmislam/PythonSIFT. Retrieved October 31, 2018, from    ……….https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
 
-[16] Katsigianni, S. (n.d.). [Example of Local Binary Pattern]. Retrieved from   	 ……....https://www.researchgate.net/figure/Example-of-Local-Binary-Pattern-calculation-for-a-3		-3-pixel-neighbourhood-a-Greyscale_fig2_260261605
+[16] Katsigianni, S. (n.d.). [Example of Local Binary Pattern]. Retrieved from https://www.researchgate.net/figure/Example-of-Local-Binary-Pattern-calculation-for-a-3		-3-pixel-neighbourhood-a-Greyscale_fig2_260261605
 
 [17] Cross-validation: evaluating estimator performance Retrieved From  					https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation 
 
-[18] OpenSURF Retrieved From  		       	…….https://www.mathworks.com/matlabcentral/fileexchange/28300-opensurf-including-image-warp 
+[18] OpenSURF Retrieved From  		       	https://www.mathworks.com/matlabcentral/fileexchange/28300-opensurf-including-image-warp 
 
 [19] Local Binary Patterns Retrieved From https://en.wikipedia.org/wiki/Local_binary_patterns 
