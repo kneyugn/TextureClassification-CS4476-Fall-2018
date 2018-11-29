@@ -77,6 +77,14 @@ Above are the images of features extracted of varying octaves and scales. There 
 Here, the results show the baseline of only passing in an array of descriptors into SVM to fit and predict. We have roughly 50% accuracy rate for all data splits. The precision and recall scores are very similar as well. This shows that on average, relevant classes are correctly identified at around 50% of the time (recall). On average for all classes, 50% of those identified for a class are correct (precision). 
 The results are what we expected if a bag-of-feature model is not employed, thus these are the baseline scores. Instead of passing in the array of descriptors, we must first cluster the features with K-means. Then, map the label to cluster for descriptors in each image. Each image will have a histogram of how often these descriptors show in the image. Then, an array of these histogram features is used to fit and predict the classification for these images.
 
+ ![Image](https://i.imgur.com/K9WyNla.png)
+ ![Image](https://i.imgur.com/sHauWrO.png)
+ 
+ The following are the results for properly classifying using the bag-of-words model on a partial dataset with only 6 classes. First, we used SIFT to extract the features from the images. Then, we clustered these features that were collected from images in the training set. Then, the bag-of-word histograms were created with k-mean closest clusters. Then, these histograms were used as prediction for SVM classifier. Then, the classifier produced these results on the test set. 
+Here, we see that varying the k-values has important effects on the outcomes. The best performance resulted from using 20 clusters with less than 80% precision, recall, and accuracy. Overall, this method produces better results than the baseline with over 60% accuracy for all k values. Further, the performance improved with a larger starting image to start from. In Table 1, we see that the best accuracy result is 50% with a 100x100 as the starting size for k=10. In Table 2, we see that the accuracy improved to 60% with a starting size of 500x500.
+However, this method is very computationally expensive. Combining SIFT, k-means clustering, and SVM resulted in hours just to compute one run for each k-clusters. Each run took about 8 hours to complete just to find all SIFT features. Therefore, we did not get to compute one run of the entire dataset with 28 classes, which would have taken us more than 50 hours on a regular machine. Thus, we did not get to run this algorithm on the full data-set. However, when viewing results from other algorithms such as LIB and GLCM, which had lower accuracy results on the entire dataset, it is likely that SIFT would have poorer performance on the full dataset as well. It is the conclusion that our SIFT implementation has the highest performance on of less than 80% accuracy on the texture dataset of size 500x500.
+
+
 #### LBP
 
 2D LBP representation of different image texture.
@@ -141,7 +149,10 @@ This table shows the performance of SVM using features obtained from GLCM with d
 
 ### Conclusion
 
-We will extend to classify all 28 classes and increase the size of the images in the dataset. We will also extend how we process the algorithms. For SIFT, qualitative results show that the first two octaves do not produce any feature. This means that the implementation is not truly scale invariant. Thus, we will increase the image size until we can find meaningful features across all scales. We will also explore with tuning the k and sigma parameters. Finally, we will properly implement the bag-of-words model to improve accuracy, precision, and recall. For LBP the accuracy is extremely high, due to overfitting. Using cross validation and increasing the number of features used to accurately predict the label set might be several good ways to combat it, and further investigation into this is required. The SVM using features extracted from GLCM shows low overall accuracy. However, the model classifies three out of six textures with significantly high accuracy while it generally fails to classify other three textures. For the future implementation, using more image samples and additional statistics values can increase the overall accuracy. Also, more thorough hyperparameter tuning process is required with cross-validation to generate a better model. Overall, for all the algorithms, there needs to be further investigation using cross validation and  tuning of the parameters to combat the underfitting and overfitting that is occuring. For the algorithms that are underfitting, and having low accuracies, increasing the size to use the full dataset instead of partial will help increase the accuracy as well. And finally, as discussed in the results section for the Speeded Up Robust Features  algorithm, there is a bug that is preventing the interest points from being calculated correctly. The code needs to be looked at further to determine what exactly is causing this issue so it can be removed. Once that issue has been taken care of , SURF can be analyzed like the other algorithms. If this issue is not resolved, we will find another algorithm to analyze for texture classification. 
+In the midterm update, we stated that our goals for the final project were to execute all four algorithms. However, one of the challenges we faced during the second half of this project was fully implementing the SURF method. We ultimately decided to remove it from our project and instead spend our time doing a proper comparison of the other three algorithms Local Binary Pattern (LBP),  Scale-Invariant Feature Transform (SIFT), and Gray Level Co-Occurrence Matrix (GLCM). Additionally, one of our goals is to run SVM with bag-of-model on the full data-set, but we were limited by computational power to only look into 6 classes of 40 images in each class with 500x500 dimensions. To extract features on 80% of the dataset required an average of 8 hours of time. In addition, it took 3 hours to get the final prediction SVM results. Still the SIFT results in this paper can be used as predictors of what the results would be on the full dataset, which we would predict would be lower.
+
+The overall result shows that the most preferable algorithm to use to classify is of Local Binary Pattern (LBP), Scale-Invariant Feature Transform (SIFT) and Gray Level Co-Occurrence Matrix (GLCM). The algorithm produced the highest accuracy rate with the least amount of time. Next, SIFT showed promising results but proved to be too computationally expensive to run. Due to the feature extraction process which involved creating many scaled-versions of the image and blurring-versions of image, SIFT involves a lot of memory space and processing power. The algorithm showed improvement on larger scale images as a starting point, but this would involve more memory to work with these images. We were able to complete bag-of-words model with SVM on a partial dataset with images of size 500x500 for 6 classes but not the entire 28 classes due to computation limitations on our local machines.
+
 
 ### References
 
@@ -163,9 +174,9 @@ We will extend to classify all 28 classes and increase the size of the images in
 
 [9]Oyallon, E., & Rabin, J. (2015). An Analysis of the SURF Method. Image Processing On 		 Line, 5, 176-218. Retrieved October 29, 2018, from  						 http://www.ipol.im/pub/art/2015/69/?utm_source=doi
 
-[10]Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.  	
+[10]Birchfield, S. (n.d.). SURF detectors and descriptors [PPT]. Clemson: Clemson University.
 
-[11] Fall [Digital image]. (n.d.). Retrieved October 29, 2018, from     			  ………https://www.almanac.com/content/2018-fall-foliage-forecast-vivid-northeast-mixed-bag-		   elsewhere 
+[11] Fall [Digital image]. (n.d.). Retrieved October 29, 2018, from     			  ………https://www.almanac.com/content/2018-fall-foliage-forecast-vivid-northeast-mixed-bag-		   elsewhere
 
 [12] Module: Feature¶. (n.d.). Retrieved October 31, 2018, from 						 http://scikit-image.org/docs/dev/api/skimage.feature.html#skimage.feature.greycomatrix
 
@@ -176,3 +187,7 @@ We will extend to classify all 28 classes and increase the size of the images in
 [15] R. (n.d.). Rmislam/PythonSIFT. Retrieved October 31, 2018, from    ……….https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
 
 [16] Katsigianni, S. (n.d.). [Example of Local Binary Pattern]. Retrieved from   	 ……....https://www.researchgate.net/figure/Example-of-Local-Binary-Pattern-calculation-for-a-3		-3-pixel-neighbourhood-a-Greyscale_fig2_260261605
+
+[17] Cross-validation: evaluating estimator performance Retrieved From  					https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation 
+
+[18] OpenSURF Retrieved From  		       	…….https://www.mathworks.com/matlabcentral/fileexchange/28300-opensurf-including-image-warp 
