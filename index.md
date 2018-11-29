@@ -27,6 +27,9 @@ We use Support Vector Machine because it is often used for classification with f
 With the exception to SIFT, which can take hours to compute features, to find the optimal values for the hyperparameter values, we used cross validation and grid search. Grid Search takes in the parameters of SVM and then runs an exhaustive search over all combinations of the parameters to find the best combination. Cross Validation is used in attempt to prevent over fitting. A group of k folds is used for testing. In each of those folds data is only compared to k -1 pieces of data [17].  
 For the SVM estimator for LBP, the best parameters Grid Search CV recommended were: 
 
+For  GLCM, the recommended values for the parameters were : 
+![Image](https://i.imgur.com/kkHNriF.png)
+
 #### Challenges
 
 ##### SURF
@@ -37,7 +40,7 @@ Another challenge that arose during the second half of implementation was the am
 SIFT proved to be too computationally expensive to run the entire dataset. Each image took, on average, one minute to compute an array of size 128 vectors, and we had about 3000 images to look at for the dataset. This would have taken two days for one machine, but it would not have been a viable option for any of our machines to handle this computation. Thus, We did not get to test the final results on the entire 28 classes dataset. Instead, we looked at a variety of k-clusters and found the best results for the 500x500 dataset. Still, extracting features for 80% of this dataset took on average, about 8 hours. Additionally, testing on SVM required about 3 hours. Thus, in our findings, we find that the time and computational power to use SIFT is a major drawback to the algorithm.
 
 ##### GLCM
-
+The performance of SVM based on GLCM features can be noticeably decreased when the extracted features from GLCM algorithm are not significant or distinguishable. From the 28 textures, 17 out of 28 classes fails to generate correct GLCMs and only 11 classes are considered as useful data to make a SVM model. It is hard to find optimal distance vector and rotation vector for GLCM calculation. Thus, even after several manual parameter tests, GLCM algorithm cannot compute proper GLCMs and attributes for SVM. Also, the accuracy of the model is lower than the results from other algorithms. Although the computation cost is cheap for using GLCM algorithm, the model does not strongly represent the entire texture dataset.
 
 #### The algorithms:
 
@@ -59,7 +62,7 @@ For the GLCM experiment, a dataset of 28 textures with 40 to 160 images in each 
 
  ![Image](https://i.imgur.com/Pfo51Fc.png)
 
-After getting all values, a training set and test set for the support vector machine model are constructed with above statistics as attributes and 28 textures as labels. The dataset is divided into a training set and a test set with the ratio of 7:3 and SVC model is generated with sklearn.svm library in Python environment. To maximize the overall accuracy of the model, hyperparameters are obtained and the cross validation is processed from GridSearchCV function in sklearn.model_selection. Based on the optimized hyperparameters, poly kernel type is used with 1 penalty value, degree 6, shrinking and probability features, one-vs-one decision function, ⅙ gamma, 5.0 coefficient and unlimited iteration. Also, the original images of 576 x 576 size and resized images of 100 x 100 size are tested to check the influence of different scale input.
+After getting all values, a training set and test set for the support vector machine model are constructed with above statistics as attributes and 28 textures as labels. The dataset is divided into a training set and a test set with the ratio of 7:3 and SVC model is generated with sklearn.svm library in Python environment. To maximize the overall accuracy of the model, hyperparameters are obtained and the cross validation is processed from GridSearchCV function in sklearn.model_selection. Based on the optimized hyperparameters, poly kernel type is used with 1 penalty value, degree 6, shrinking and probability features, one-vs-one decision function, ⅙ gamma, 5.0 coefficient and unlimited iteration. Also, the original images of 576 x 576 size and resized images of 100 x 100 size are tested to check the influence of different scaled inputs.
 
 
 ### Experiments and results
