@@ -74,13 +74,16 @@ Above are the images of features extracted of varying octaves and scales. There 
  ![Image](https://i.imgur.com/Sn149Et.png)
 
 Here, the results show the baseline of only passing in an array of descriptors into SVM to fit and predict. We have roughly 50% accuracy rate for all data splits. The precision and recall scores are very similar as well. This shows that on average, relevant classes are correctly identified at around 50% of the time (recall). On average for all classes, 50% of those identified for a class are correct (precision). 
+
 The results are what we expected if a bag-of-feature model is not employed, thus these are the baseline scores. Instead of passing in the array of descriptors, we must first cluster the features with K-means. Then, map the label to cluster for descriptors in each image. Each image will have a histogram of how often these descriptors show in the image. Then, an array of these histogram features is used to fit and predict the classification for these images.
 
  ![Image](https://i.imgur.com/K9WyNla.png)
  ![Image](https://i.imgur.com/sHauWrO.png)
  
  The following are the results for properly classifying using the bag-of-words model on a partial dataset with only 6 classes. First, we used SIFT to extract the features from the images. Then, we clustered these features that were collected from images in the training set. Then, the bag-of-word histograms were created with k-mean closest clusters. Then, these histograms were used as prediction for SVM classifier. Then, the classifier produced these results on the test set. 
+ 
 Here, we see that varying the k-values has important effects on the outcomes. The best performance resulted from using 20 clusters with less than 80% precision, recall, and accuracy. Overall, this method produces better results than the baseline with over 60% accuracy for all k values. Further, the performance improved with a larger starting image to start from. In Table 1, we see that the best accuracy result is 50% with a 100x100 as the starting size for k=10. In Table 2, we see that the accuracy improved to 60% with a starting size of 500x500.
+
 However, this method is very computationally expensive. Combining SIFT, k-means clustering, and SVM resulted in hours just to compute one run for each k-clusters. Each run took about 8 hours to complete just to find all SIFT features. Therefore, we did not get to compute one run of the entire dataset with 28 classes, which would have taken us more than 50 hours on a regular machine. Thus, we did not get to run this algorithm on the full data-set. However, when viewing results from other algorithms such as LIB and GLCM, which had lower accuracy results on the entire dataset, it is likely that SIFT would have poorer performance on the full dataset as well. It is the conclusion that our SIFT implementation has the highest performance on of less than 80% accuracy on the texture dataset of size 500x500.
 
 
