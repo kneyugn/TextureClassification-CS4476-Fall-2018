@@ -99,11 +99,12 @@ However, this method is very computationally expensive. Combining SIFT, k-means 
 
 2D LBP representation of different image texture.
 
- ![Image](https://imgur.com/XylPErI)
- ![Image](https://imgur.com/PsCJlWF)
- ![Image](https://imgur.com/6zebMjV)
- ![Image](https://imgur.com/Aj3R6Lw)
- ![Image](https://imgur.com/QTiTw0C)
+ ![Image](https://i.imgur.com/XylPErI.png)
+ ![Image](https://i.imgur.com/PsCJlWF.png)
+ ![Image](https://i.imgur.com/6zebMjV.png)
+ ![Image](https://i.imgur.com/Aj3R6Lw.png)
+ ![Image](https://i.imgur.com/QTiTw0C.png)
+ ![Image](https://i.imgur.com/DnZtjbG.png) 
 
 Here are the corresponding histograms for these images:
 ![Image](https://i.imgur.com/PXxNy1A.png) 
