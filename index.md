@@ -25,7 +25,9 @@ We use Support Vector Machine because it is often used for classification with f
 #### Hyperparameters
 
 With the exception to SIFT, which can take hours to compute features, to find the optimal values for the hyperparameter values, we used cross validation and grid search. Grid Search takes in the parameters of SVM and then runs an exhaustive search over all combinations of the parameters to find the best combination. Cross Validation is used in attempt to prevent over fitting. A group of k folds is used for testing. In each of those folds data is only compared to k -1 pieces of data [17].  
+
 For the SVM estimator for LBP, the best parameters Grid Search CV recommended were: 
+![Image](https://i.imgur.com/tC4laue.png) 
 
 For  GLCM, the recommended values for the parameters were : 
 ![Image](https://i.imgur.com/kkHNriF.png)
