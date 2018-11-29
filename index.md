@@ -104,13 +104,14 @@ However, this method is very computationally expensive. Combining SIFT, k-means 
  ![Image](https://i.imgur.com/6zebMjV.png)
  ![Image](https://i.imgur.com/Aj3R6Lw.png)
  ![Image](https://i.imgur.com/QTiTw0C.png)
- ![Image](https://i.imgur.com/DnZtjbG.png) 
+ 
 
 Here are the corresponding histograms for these images:
-![Image](https://i.imgur.com/PXxNy1A.png) 
-![Image](https://i.imgur.com/aIz3zdz.png) 
-![Image](https://i.imgur.com/2g5PI4S.png) 
-![Image](https://i.imgur.com/vCzDcC4.png)
+![Image](https://i.imgur.com/Kdvsyje.png) 
+![Image](https://i.imgur.com/xXtwisa.png) 
+![Image](https://i.imgur.com/q4IaSQm.png) 
+![Image](https://i.imgur.com/8uJh2Ad.png)
+![Image](https://i.imgur.com/rhZnIRg.png)
 
 
 SVM Results for LBP:
