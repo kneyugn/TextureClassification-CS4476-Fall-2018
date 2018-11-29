@@ -213,7 +213,7 @@ We would also like to improve the implementation of the algorithms we used. For 
 
 [14] Qian, K., Zhang, Y., & Hasegawa-Johnson, M. (2016). Application of local binary patterns 		 for SVM-based stop consonant detection. Speech Prosody 2016. 					 doi:10.21437/speechprosody.2016-229
 
-[15] R. (n.d.). Rmislam/PythonSIFT. Retrieved October 31, 2018, from    ……….https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
+[15] R. (n.d.). Rmislam/PythonSIFT. Retrieved October 31, 2018, from    https://github.com/rmislam/PythonSIFT/blob/master/siftdetector.py
 
 [16] Katsigianni, S. (n.d.). [Example of Local Binary Pattern]. Retrieved from https://www.researchgate.net/figure/Example-of-Local-Binary-Pattern-calculation-for-a-3		-3-pixel-neighbourhood-a-Greyscale_fig2_260261605
 
