@@ -44,6 +44,9 @@ SIFT proved to be too computationally expensive to run the entire dataset. Each 
 ##### GLCM
 The performance of SVM based on GLCM features can be noticeably decreased when the extracted features from GLCM algorithm are not significant or distinguishable. From the 28 textures, 17 out of 28 classes fails to generate correct GLCMs and only 11 classes are considered as useful data to make a SVM model. It is hard to find optimal distance vector and rotation vector for GLCM calculation. Thus, even after several manual parameter tests, GLCM algorithm cannot compute proper GLCMs and attributes for SVM. Also, the accuracy of the model is lower than the results from other algorithms. Although the computation cost is cheap for using GLCM algorithm, the model does not strongly represent the entire texture dataset.
 
+##### LBP
+LBP proved to be challenging because the algorithm tends to easily overfit when the dataset is smaller, and when there are other only a few classes the estimator is trying to classify. Ways to fit the overfitting is hypertuning through cross validation, and increasing the dataset size, which we did. 
+
 #### The algorithms:
 
 ##### SIFT:
