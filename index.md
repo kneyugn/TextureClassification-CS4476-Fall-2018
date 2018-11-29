@@ -36,6 +36,9 @@ Another challenge that arose during the second half of implementation was the am
 ##### SIFT
 SIFT proved to be too computationally expensive to run the entire dataset. Each image took, on average, one minute to compute an array of size 128 vectors, and we had about 3000 images to look at for the dataset. This would have taken two days for one machine, but it would not have been a viable option for any of our machines to handle this computation. Thus, We did not get to test the final results on the entire 28 classes dataset. Instead, we looked at a variety of k-clusters and found the best results for the 500x500 dataset. Still, extracting features for 80% of this dataset took on average, about 8 hours. Additionally, testing on SVM required about 3 hours. Thus, in our findings, we find that the time and computational power to use SIFT is a major drawback to the algorithm.
 
+##### GLCM
+
+
 #### The algorithms:
 
 ##### SIFT:
@@ -51,7 +54,8 @@ You then get the 2-Dimensional Image Representation of the LBP. You can use this
 
 
 ##### Gray Level Co-Occurrence Matrix
-In this midterm update, a dataset of 6 textures with 40 samples in each class is used to obtain GLCM values and corresponding statistical metrics. The GLCM is a n x n matrix where n is the number of gray level in an image and each cell represents the co-occurrence of gray-level pixel in an image. Thus, all image samples are converted to 8 bit grayscale images and a GLCM is calculated for each converted image. Multiple GLCM calculations are done with displacement vector of [1, 2, 4] and rotation vector of [0] to find the optimal combination for statistics calculations. 3 possible sets of GLCMs are normalized by the number of pixels and then used to calculate the values of contrast, dissimilarity, homogeneity, ASM, energy, and correlation of the texture image by following equations. [7]
+For the GLCM experiment, a dataset of 28 textures with 40 to 160 images in each class is used to calculate GLCM and corresponding statistical metrics. The GLCM is a n x n matrix where n is the number of gray level in an image and each cell represents the co-occurrence of gray-level pixel in an image. Thus, all image samples are converted to 8 bit grayscale images and a GLCM is calculated from each converted image. After several tests, the parameters for GLCM computation are set to displacement vector of (1) and rotation vector of (0). Then, with these GLCMs, 6 GLCM properties - contrast, dissimilarity, homogeneity, ASM, energy, and correlation are calculated with the following equations. [7]
+
 
  ![Image](https://i.imgur.com/Pfo51Fc.png)
 
